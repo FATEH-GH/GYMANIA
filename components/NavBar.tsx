@@ -7,12 +7,12 @@ const NavBar = () => {
       <ul className="flex justify-between">
         <li>
           <Link href="/">
-            <Image src="/images/logo.png" height={75} width={75} alt="logo" />
+            <Image src="/images/Logo.png" height={75} width={75} alt="logo" />
           </Link>
         </li>
         <li>
           <Link href="/">
-            <Image src="/images/logo.png" height={50} width={50} alt="logo" />
+            <Image src="/images/Logo.png" height={50} width={50} alt="logo" />
           </Link>
         </li>
       </ul>
