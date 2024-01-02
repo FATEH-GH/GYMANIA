@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
+import { Provider } from "@/components/Provider";
 
 export const metadata: Metadata = {
   title: "GYMANIA",
@@ -15,10 +16,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="font-roboto ">
-        <NavBar />
-        {children}
-        <Footer />
+      <body className="font-roboto transition-all duration-300 ">
+        <Provider>
+          <NavBar />
+          {children}
+          <Footer />
+        </Provider>
       </body>
     </html>
   );
