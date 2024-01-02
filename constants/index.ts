@@ -1,6 +1,6 @@
 export const Body = [
   { id: 0, part: "All", image: "/icons/gym.png" },
-  { id: 1, part: "back", image: "/images/back.png" },
+  { id: 1, part: "back", image: "/images/Back.png" },
   { id: 2, part: "cardio", image: "/images/cardio.png" },
   { id: 3, part: "chest", image: "/images/Chest.png" },
   { id: 4, part: "Lower Arms", image: "/images/LowerArms.png" },
