@@ -31,8 +31,11 @@ const DarkModeCard = () => {
     transform,
     config: properties.springConfig,
   });
-  const CenterCircleProps = useSpring({ r, config: properties.springConfig });
-  const MaskedCircleProps = useSpring({
+  const CenterCircleProps: any = useSpring({
+    r,
+    config: properties.springConfig,
+  });
+  const MaskedCircleProps: any = useSpring({
     cx,
     cy,
     config: properties.springConfig,

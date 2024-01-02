@@ -38,10 +38,10 @@ const SearchExercices = () => {
   }, [inView]);
 
   return (
-    <section className="wrapper mx-8 ">
+    <section className="wrapper mx-8  my-24 md:my-36">
       <div
         ref={ref}
-        className="grid grid-cols-1 gap-8 md:grid-cols-2 place-content-center  min-h-screen max-sm:my-24"
+        className="grid grid-cols-1 gap-8 md:grid-cols-2 place-content-center mb-10 max-sm:my-24"
       >
         <MotionImage
           initial={{ x: 50, opacity: 0 }}
@@ -66,9 +66,7 @@ const SearchExercices = () => {
           most out of your gym time. Everyone has different reasons for joining
           a gym but for anyone just starting out on their journey, understanding
           how to use equipment effectively can be confusing.
-          <br /> These beginner gym workouts are ideal for various goals,
-          whether you want to lose weight or burn fat, build muscle and
-          strength, or improve your fitness.
+          <br />
         </MotionP>
       </div>
       <h2 className="font-bold text-4xl md:text-6xl  text-center leading-10">
