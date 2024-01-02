@@ -1,12 +1,18 @@
 import Image from "next/image";
 import { Button } from "./ui/button";
 import Link from "next/link";
+import { MotionDiv } from "./FramerMotion";
 
 const Hero = () => {
   return (
     <section className=" wrapper min-h-screen  mx-8  ">
       <div className=" grid grid-cols-1 gap-8 md:grid-cols-2 2xl:gap-0">
-        <div className="flex flex-col justify-center gap-8">
+        <MotionDiv
+          initial={{ x: -50, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.3 }}
+          className="flex flex-col justify-center gap-8"
+        >
           <h1 className="text-red-400 font-semibold text-2xl md:text-3xl">
             Fitness Club
           </h1>
@@ -22,8 +28,12 @@ const Hero = () => {
           >
             <Link href="#exercises">Explore more</Link>
           </Button>
-        </div>
-        <div>
+        </MotionDiv>
+        <MotionDiv
+          initial={{ x: 50, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.3 }}
+        >
           <Image
             src="/images/hero.png"
             alt="hero image"
@@ -31,7 +41,7 @@ const Hero = () => {
             height={1000}
             className="max-h-[70vh] object-contain object-center 2xl-max-h-[50vh] bg-red-500 rounded-full"
           />
-        </div>
+        </MotionDiv>
       </div>
     </section>
   );

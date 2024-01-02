@@ -12,24 +12,55 @@ import { Body } from "@/constants";
 import Image from "next/image";
 import Link from "next/link";
 
-import { useState } from "react";
-import { MotionDiv } from "./FramerMotion";
+import { useEffect, useState } from "react";
+import { MotionDiv, MotionImage, MotionP } from "./FramerMotion";
 import Exercices from "./Exercises";
+
+import { useInView } from "react-intersection-observer";
 
 const SearchExercices = () => {
   const [isSelected, setIsSelected] = useState<string>("All");
 
+  const [onView, setOnView] = useState(false);
+  const [ref, inView] = useInView();
+
+  const variant = {
+    View: {
+      x: 0,
+      opacity: 1,
+    },
+  };
+
+  useEffect(() => {
+    if (inView) {
+      setOnView(true);
+    }
+  }, [inView]);
+
   return (
     <section className="wrapper mx-8 ">
-      <div className="grid grid-cols-1 gap-8 md:grid-cols-2 place-content-center  min-h-screen max-sm:my-24">
-        <Image
+      <div
+        ref={ref}
+        className="grid grid-cols-1 gap-8 md:grid-cols-2 place-content-center  min-h-screen max-sm:my-24"
+      >
+        <MotionImage
+          initial={{ x: 50, opacity: 0 }}
+          variants={variant}
+          animate={onView ? "View" : ""}
+          transition={{ duration: 0.75 }}
           src="/images/dumbell.png"
           alt="dumbell image"
           width={500}
           height={500}
           className="bg-red-500 rounded-full p-8"
         />
-        <p className="text-xl md:text-2xl max-w-2xl flex font-semibold items-center leading-10">
+        <MotionP
+          initial={{ x: -50, opacity: 0 }}
+          variants={variant}
+          animate={onView ? "View" : ""}
+          transition={{ duration: 0.75 }}
+          className="text-xl md:text-2xl max-w-2xl flex font-semibold items-center leading-10"
+        >
           Going to the gym for the first time doesn’t need to be daunting. We
           offer some beginner workouts to help you feel confident and get the
           most out of your gym time. Everyone has different reasons for joining
@@ -38,7 +69,7 @@ const SearchExercices = () => {
           <br /> These beginner gym workouts are ideal for various goals,
           whether you want to lose weight or burn fat, build muscle and
           strength, or improve your fitness.
-        </p>
+        </MotionP>
       </div>
       <h2 className="font-bold text-4xl md:text-6xl  text-center leading-10">
         Awesome Exercices You <br className="hidden lg:block" /> Should Know{" "}
