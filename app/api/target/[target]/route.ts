@@ -2,9 +2,9 @@ import { NextRequest, NextResponse } from "next/server";
 
 export const GET = async (
   _: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: { target: string } }
 ) => {
-  const url = `https://exercisedb.p.rapidapi.com/exercises/exercise/${params.id}`;
+  const url = `https://exercisedb.p.rapidapi.com/exercises/target/${params?.target}?limit=10`;
   const response = await fetch(url, {
     method: "GET",
     headers: {
@@ -12,9 +12,8 @@ export const GET = async (
       "X-RapidAPI-Host": "exercisedb.p.rapidapi.com",
     },
   });
-
   const data = await response.json();
-  // console.info(data);
+  console.info("from the server", params.target);
 
   return NextResponse.json({ data });
 };

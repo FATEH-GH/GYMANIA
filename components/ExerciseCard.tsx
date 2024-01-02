@@ -1,6 +1,6 @@
 import { ExerciseListProps } from "@/types";
 import Image from "next/image";
-import { Card, CardContent, CardFooter, CardHeader } from "./ui/card";
+import { Card, CardContent } from "./ui/card";
 import Link from "next/link";
 
 interface ExerciseCardProps {
@@ -16,10 +16,10 @@ const exercisesCard = ({ exercise }: ExerciseCardProps) => {
 
   return (
     <section className="wrapper">
-      <Card className="m-4 group hover:scale-110  transition duration-300 py-0 overflow-hidden h-[500px]">
+      <Card className="m-4 group hover:scale-110  transition duration-300 py-0 overflow-hidden md:h-[500px]">
         <div className=" h-2 w-full translate-x-[-100%] group-hover:translate-x-0 transition duration-300 rounded-full bg-red-500" />
 
-        <Link href={`exercise/${exercise.id}`} className="">
+        <Link href={`exercise/${exercise.id}`}>
           <CardContent className="flex items-start justify-center flex-col gap-6">
             <Image
               src={exercise.gifUrl}

@@ -30,12 +30,6 @@ const Exercises = ({ BodyPart }: exercisesProps) => {
     fetchExercise();
   }, [BodyPart]);
 
-  console.log(
-    "this the data :",
-    exercises,
-    "and the body part",
-    BodyPart.toLowerCase()
-  );
   // swr
 
   return (

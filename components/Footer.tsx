@@ -6,14 +6,14 @@ const Footer = () => {
     <footer className=" my-6 wrapper flex flex-col items-center md:mx-4 gap-4 md:flex-row md:justify-between">
       <Link href="/">
         <Image
-          src="/images/logo-1.png"
+          src="/images/Logo.png"
           alt="footer logo"
-          height={150}
-          width={200}
+          height={750}
+          width={100}
         />
       </Link>
 
-      <p>2024 GoldenGym. All rights reserved</p>
+      <p>2024 Gymania. All rights reserved</p>
     </footer>
   );
 };

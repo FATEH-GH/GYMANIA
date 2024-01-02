@@ -12,3 +12,7 @@ export interface ExerciseListProps {
 export interface exercisesProps {
   BodyPart: string;
 }
+
+export interface SimilarExercisesProps {
+  target: string;
+}

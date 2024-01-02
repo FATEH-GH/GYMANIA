@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const Hero = () => {
   return (
-    <section className=" wrapper   mx-8  ">
+    <section className=" wrapper min-h-screen  mx-8  ">
       <div className=" grid grid-cols-1 gap-8 md:grid-cols-2 2xl:gap-0">
         <div className="flex flex-col justify-center gap-8">
           <h1 className="text-red-400 font-semibold text-2xl md:text-3xl">
