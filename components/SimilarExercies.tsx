@@ -16,13 +16,13 @@ const SimilarExercises = ({ target }: SimilarExercisesProps) => {
       console.log("the second useeffect(2)");
     };
     fetExercieseTarget();
-  }, []);
+  }, [target]);
   return (
     <div className="grid place-content-center grid-col-1 sm:grid-cols-2 gap-4 md:grid-cols-3  ">
       {listexercices &&
         listexercices.map((exer, index) => (
           <div key={index}>
-            <ExerciseCard exercise={exer} />
+            <ExerciseCard exercise={exer} target={true} />
           </div>
         ))}
     </div>

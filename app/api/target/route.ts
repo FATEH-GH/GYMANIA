@@ -11,8 +11,6 @@ export const GET = async (_: NextRequest) => {
     },
   });
   const data = await response.json();
-  // console.info(data);
-  console.info("from the server");
 
   return NextResponse.json({ data });
 };

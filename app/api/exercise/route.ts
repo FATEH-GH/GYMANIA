@@ -12,7 +12,6 @@ export const GET = async (_: NextRequest) => {
   });
 
   const data = await response.json();
-  //console.info(data);
 
   return NextResponse.json({ data });
 };

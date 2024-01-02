@@ -1,9 +1,7 @@
 "use client";
-import { Loader } from "lucide-react";
 import { ExerciseListProps } from "@/types";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import ExerciseCard from "@/components/ExerciseCard";
 import SkeletonLoader from "@/components/Skeleton";
 import SimilarExercises from "@/components/SimilarExercies";
 
