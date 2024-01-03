@@ -24,18 +24,17 @@ const Exercise = ({ params }: { params: { id: number } }) => {
     fetchExercise();
   }, [params.id]);
 
-  console.log("here is the list: s", exercicesId?.target);
   return (
     <>
       {exercicesId && !isloading ? (
         <section className="wrapper">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-10">
+          <div className="flex flex-col md:flex-row justify-between md:justify-center items-center gap-10 my-24 mx-6">
             <Image
               src={exercicesId?.gifUrl}
               alt="gifUrl"
-              height={1000}
-              width={1000}
-              className="md:w-1/2"
+              height={500}
+              width={500}
+              className="md:w-[40%]"
             />
             <div className="p-2 md:w-1/2 flex flex-col gap-4">
               <h2 className="font-bold text-2xl text-red-500 capitalize my-4 mx-2 ">

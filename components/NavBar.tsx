@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import DarkModeCard from "./DarkMode";
+import DarkModeCard from "./DarkModeCard";
 
 const NavBar = () => {
   return (

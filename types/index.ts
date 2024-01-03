@@ -9,6 +9,11 @@ export interface ExerciseListProps {
   target: string;
 }
 
+export interface ExerciseCardProps {
+  exercise: ExerciseListProps;
+  target?: boolean;
+}
+
 export interface exercisesProps {
   BodyPart: string;
 }

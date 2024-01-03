@@ -38,11 +38,8 @@ const SearchExercices = () => {
   }, [inView]);
 
   return (
-    <section className="wrapper mx-8  my-24 md:my-36">
-      <div
-        ref={ref}
-        className="grid grid-cols-1 gap-8 md:grid-cols-2 place-content-center mb-10 max-sm:my-24"
-      >
+    <section className="wrapper mx-8  my-32 md:my-36">
+      <div className="grid grid-cols-1 gap-8 md:grid-cols-2 place-content-center mb-10 ">
         <MotionImage
           initial={{ x: 50, opacity: 0 }}
           variants={variant}
@@ -55,6 +52,7 @@ const SearchExercices = () => {
           className="bg-red-500 rounded-full p-8"
         />
         <MotionP
+          ref={ref}
           initial={{ x: -50, opacity: 0 }}
           variants={variant}
           animate={onView ? "View" : ""}
@@ -69,7 +67,7 @@ const SearchExercices = () => {
           <br />
         </MotionP>
       </div>
-      <h2 className="font-bold text-4xl md:text-6xl  text-center leading-10">
+      <h2 className="font-bold text-4xl md:text-6xl text-center leading-10">
         Awesome Exercices You <br className="hidden lg:block" /> Should Know{" "}
       </h2>
       <Carousel className="my-10 mx-10">

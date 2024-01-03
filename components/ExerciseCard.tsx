@@ -1,25 +1,9 @@
-import { ExerciseListProps } from "@/types";
+import { ExerciseCardProps } from "@/types";
 import Image from "next/image";
 import { Card, CardContent } from "./ui/card";
 import Link from "next/link";
-import { usePathname, useSearchParams } from "next/navigation";
-
-interface ExerciseCardProps {
-  exercise: ExerciseListProps;
-  target?: boolean;
-}
 
 const exercisesCard = ({ exercise, target }: ExerciseCardProps) => {
-  // console.log(
-  //   exercise.secondaryMuscles.map((value, index) => {
-  //     return value;
-  //   })
-  // );
-
-  // const pathname = usePathname();
-
-  // console.log("Search????????? ", pathname.trimEnd());
-
   return (
     <section className="wrapper">
       <Card className="m-4 group hover:scale-110  transition duration-300 py-0 overflow-hidden md:h-[500px]">
@@ -28,12 +12,13 @@ const exercisesCard = ({ exercise, target }: ExerciseCardProps) => {
         <Link
           href={`${target ? `./${exercise.id}` : `exercise/${exercise.id}`}  `}
         >
-          <CardContent className="flex items-start justify-center flex-col gap-6">
+          <CardContent className="flex items-center justify-center flex-col gap-6">
             <Image
               src={exercise.gifUrl}
               alt="imageUrl"
               width={300}
               height={300}
+              className="bg-white"
             />
             <div className="flex gap-4 flex-wrap font-semibold">
               {exercise.secondaryMuscles.map((exer, index) => (
