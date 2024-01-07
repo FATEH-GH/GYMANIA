@@ -6,10 +6,10 @@ const Footer = () => {
     <footer className=" my-6 wrapper flex flex-col items-center md:mx-8 gap-4 md:flex-row md:justify-between">
       <Link href="/">
         <Image
-          src="/images/Logo.png"
+          src="/icons/Logo.png"
           alt="footer logo"
-          height={750}
-          width={100}
+          height={150}
+          width={150}
         />
       </Link>
 
