@@ -5,7 +5,7 @@ import { MotionDiv } from "./FramerMotion";
 
 const Hero = () => {
   return (
-    <section className=" wrapper mx-8  ">
+    <section className=" wrapper mx-8 mb-48 ">
       <div className=" grid grid-cols-1 gap-8 md:grid-cols-2 2xl:gap-0">
         <MotionDiv
           initial={{ x: -50, opacity: 0 }}
