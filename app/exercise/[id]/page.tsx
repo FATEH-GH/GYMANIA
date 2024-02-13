@@ -18,7 +18,6 @@ const Exercise = ({ params }: { params: { id: number } }) => {
         .then((res) => res.json())
         .catch((err) => console.info(err));
       setExercicesId(data);
-      console.log("the first useeffect(1)");
       setIsLoading(false);
     };
     fetchExercise();
