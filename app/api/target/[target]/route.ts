@@ -8,7 +8,7 @@ export const GET = async (
   const response = await fetch(url, {
     method: "GET",
     headers: {
-      "X-RapidAPI-Key": "52635b0f5amsh83c00fe99239c65p1948aejsnf56f02274bbd",
+      "X-RapidAPI-Key": process.env.API_KEY!,
       "X-RapidAPI-Host": "exercisedb.p.rapidapi.com",
     },
   });
