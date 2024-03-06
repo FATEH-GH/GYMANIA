@@ -70,6 +70,13 @@ const SearchExercices = () => {
       <h2 className="font-bold text-4xl md:text-6xl text-center leading-10">
         Awesome Exercices You <br className="hidden lg:block" /> Should Know{" "}
       </h2>
+      <div className="relative flex flex-col items-center justify-center">
+        <div className="absolute top-3 bg-gradient-to-r from-transparent via-red-500 to-transparent h-[2px] w-3/4 blur-sm" />
+        <div className="absolute top-3 bg-gradient-to-r from-transparent via-red-500 to-transparent h-px w-3/4" />
+        <div className="absolute top-3 bg-gradient-to-r from-transparent via-red-500 to-transparent h-[5px] w-1/4 blur-sm" />
+        <div className="absolute top-3 bg-gradient-to-r from-transparent via-red-500 to-transparent h-px w-1/4" />
+      </div>
+
       <Carousel className="my-10 mx-10">
         <CarouselContent>
           {Body.map((exer, index) => (
