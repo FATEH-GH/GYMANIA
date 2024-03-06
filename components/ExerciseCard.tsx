@@ -41,4 +41,3 @@ const exercisesCard = ({ exercise, target }: ExerciseCardProps) => {
 };
 
 export default exercisesCard;
-//<Image src={exercise.gifUrl} alt="gifUrl" width={500} height={500} />
