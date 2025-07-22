@@ -7,7 +7,7 @@ const exercisesCard = ({ exercise, target }: ExerciseCardProps) => {
   return (
     <section className="wrapper">
       <Card className="m-4 group hover:scale-110  transition duration-300 py-0 overflow-hidden md:h-[500px]">
-        <div className=" h-2 w-full translate-x-[-100%] group-hover:translate-x-0 transition duration-300 rounded-full bg-red-500" />
+        <div className=" h-2 w-full -translate-x-full group-hover:translate-x-0 transition duration-300 rounded-full bg-red-500" />
 
         <Link
           href={`${target ? `./${exercise.id}` : `exercise/${exercise.id}`}  `}
@@ -19,6 +19,7 @@ const exercisesCard = ({ exercise, target }: ExerciseCardProps) => {
               width={300}
               height={300}
               className="bg-white"
+              unoptimized
             />
             <div className="flex gap-4 flex-wrap font-semibold">
               {exercise.secondaryMuscles.map((exer, index) => (
