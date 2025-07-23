@@ -12,7 +12,6 @@ export const GET = async (
       "X-RapidAPI-Host": "exercisedb.p.rapidapi.com",
     },
   });
-  console.log("the url", url);
 
   const data = await response.json();
 

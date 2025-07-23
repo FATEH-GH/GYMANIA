@@ -16,7 +16,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="font-roboto transition-all duration-300 ">
+      <body className="font-roboto transition-all duration-300 max-w-[1500px] mx-auto">
         <Provider>
           <NavBar />
           {children}

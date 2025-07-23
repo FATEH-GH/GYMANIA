@@ -5,7 +5,7 @@ import { MotionDiv } from "./FramerMotion";
 
 const Hero = () => {
   return (
-    <section className=" wrapper mx-8 mb-48 ">
+    <section className=" wrapper mx-8 mb-48 mt- ">
       <div className=" grid grid-cols-1 gap-8 md:grid-cols-2 2xl:gap-0">
         <MotionDiv
           initial={{ x: -50, opacity: 0 }}
@@ -13,19 +13,14 @@ const Hero = () => {
           transition={{ duration: 0.3 }}
           className="flex flex-col justify-center gap-8"
         >
-          <h1 className="text-red-400 font-semibold text-2xl md:text-3xl">
-            Fitness Club
+          <h1 className="font-bold text-4xl md:text-8xl">
+            Unleash Your Power.
           </h1>
-          <h2 className="font-bold text-3xl leading-10 md:text-4xl">
-            Sweat, Smile And Repeat
-          </h2>
           <p className="text-xl md:text-2xl">
-            Check the most effective exercises persolnelized to you.
+            Train Like a Pro by Checking the most effective exercises
+            persolnelized to you and
           </p>
-          <Button
-            variant="destructive"
-            className="max-w-[150px] text-lg md:text-xl"
-          >
+          <Button className="max-w-[150px] text-lg md:text-xl bg-customColor text-blach dark:text-white font-semibold">
             <Link href="#exercises">Explore more</Link>
           </Button>
         </MotionDiv>
@@ -39,7 +34,7 @@ const Hero = () => {
             alt="hero image"
             width={1000}
             height={1000}
-            className="max-h-[70vh] object-contain object-center 2xl-max-h-[50vh] bg-red-500 rounded-full"
+            className="  object-contain object-center   bg-customColor rounded-full"
           />
         </MotionDiv>
       </div>

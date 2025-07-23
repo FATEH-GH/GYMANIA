@@ -13,7 +13,7 @@ const Footer = () => {
         />
       </Link>
 
-      <p>2024 GYMANIA. All rights reserved</p>
+      <p>2025 GYMANIA. All rights reserved</p>
     </footer>
   );
 };

@@ -33,7 +33,8 @@ const Exercise = ({ params }: { params: { id: number } }) => {
               alt="gifUrl"
               height={500}
               width={500}
-              className="md:w-[40%]"
+              className="md:w-[40%] rounded-md"
+              unoptimized
             />
             <div className="p-2 md:w-1/2 flex flex-col gap-4">
               <h2 className="font-bold text-2xl text-red-500 capitalize my-4 mx-2 ">

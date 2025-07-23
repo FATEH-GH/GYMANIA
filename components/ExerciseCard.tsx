@@ -18,7 +18,7 @@ const exercisesCard = ({ exercise, target }: ExerciseCardProps) => {
               alt="imageUrl"
               width={300}
               height={300}
-              className="bg-white"
+              className="bg-white rounded-md"
               unoptimized
             />
             <div className="flex gap-4 flex-wrap font-semibold">

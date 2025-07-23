@@ -67,7 +67,7 @@ const SearchExercices = () => {
           <br />
         </MotionP>
       </div>
-      <h2 className="font-bold text-4xl md:text-6xl text-center leading-10">
+      <h2 className="font-bold text-4xl md:text-6xl text-center ">
         Awesome Exercices You <br className="hidden lg:block" /> Should Know{" "}
       </h2>
       <div className="relative flex flex-col items-center justify-center">
