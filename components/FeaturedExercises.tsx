@@ -7,7 +7,7 @@ const FeaturedExercises = () => {
         Featured Workouts
       </h2>{" "}
       <div className="flex flex-col md:flex-row  justify-evenly  gap-4 items-center  ">
-        {/* <CardFlip
+        <CardFlip
           image="/images/Chest.png"
           title="Push Day Routine"
           target={["Chest", "Shoulders", "Triceps"]}
@@ -24,7 +24,7 @@ const FeaturedExercises = () => {
           title="Arm Strength Builder"
           target={["Biceps", "Triceps", "Forearms"]}
           duration="45 Min"
-        /> */}
+        />
       </div>
     </section>
   );

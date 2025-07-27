@@ -11,8 +11,6 @@ const Exercises = ({ BodyPart }: exercisesProps) => {
 
   useEffect(() => {
     const fetchExercise = async () => {
-      setIsloading(true);
-
       const { data }: { data: ExerciseListProps[] } = await fetch(
         `/api/BodyParts/${BodyPart.toLowerCase()}`
       )
@@ -20,8 +18,6 @@ const Exercises = ({ BodyPart }: exercisesProps) => {
         .catch((err) => console.info(err));
 
       setExercises(data);
-
-      setIsloading(false);
     };
     fetchExercise();
   }, [BodyPart]);

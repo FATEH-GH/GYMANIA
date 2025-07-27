@@ -134,7 +134,7 @@ export default function CardFlip({
 
           <div className="pt-6 mt-6 border-t border-zinc-200 dark:border-zinc-800">
             <Link
-              href={"#exercises"}
+              href="#exercises"
               className={cn(
                 "group/start relative",
                 "flex items-center justify-between",
