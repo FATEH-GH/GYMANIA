@@ -19,7 +19,7 @@ import Exercices from "./Exercises";
 import { useInView } from "react-intersection-observer";
 
 const SearchExercices = () => {
-  const [isSelected, setIsSelected] = useState<string>("All");
+  const [isSelected, setIsSelected] = useState<string>("Cardio");
 
   const [onView, setOnView] = useState(false);
   const [ref, inView] = useInView();

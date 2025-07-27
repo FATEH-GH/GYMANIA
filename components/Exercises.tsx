@@ -11,25 +11,15 @@ const Exercises = ({ BodyPart }: exercisesProps) => {
 
   useEffect(() => {
     const fetchExercise = async () => {
-      if (BodyPart !== "all") {
-        const { data }: { data: ExerciseListProps[] } = await fetch(
-          `/api/BodyParts/${BodyPart.toLowerCase()}`
-        )
-          .then((res) => res.json())
-          .catch((err) => console.info(err));
+      setIsloading(true);
+      const { data }: { data: ExerciseListProps[] } = await fetch(
+        "/api/exercise"
+      )
+        .then((res) => res.json())
+        .catch((err) => console.info(err));
 
-        setExercises(data);
-      } else {
-        setIsloading(true);
-        const { data }: { data: ExerciseListProps[] } = await fetch(
-          "/api/exercise"
-        )
-          .then((res) => res.json())
-          .catch((err) => console.info(err));
-
-        setExercises(data);
-        setIsloading(false);
-      }
+      setExercises(data);
+      setIsloading(false);
     };
     fetchExercise();
   }, [BodyPart]);
