@@ -12,13 +12,15 @@ const Exercises = ({ BodyPart }: exercisesProps) => {
   useEffect(() => {
     const fetchExercise = async () => {
       setIsloading(true);
+
       const { data }: { data: ExerciseListProps[] } = await fetch(
-        "/api/exercise"
+        `/api/BodyParts/${BodyPart.toLowerCase()}`
       )
         .then((res) => res.json())
         .catch((err) => console.info(err));
 
       setExercises(data);
+
       setIsloading(false);
     };
     fetchExercise();
