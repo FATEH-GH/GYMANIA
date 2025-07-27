@@ -4,8 +4,9 @@
 
 @custom-variant dark (&:is(.dark *));
 
-@theme {
-  --font-roboto: Roboto Mono, sans-serif;
+@theme inline {
+  --font-anton: var(--font-anton-sans);
+  --font-roboto: var(--font-robot-sans);
 
   --background-image-gradient-radial: radial-gradient(var(--tw-gradient-stops));
   --background-image-gradient-conic: conic-gradient(

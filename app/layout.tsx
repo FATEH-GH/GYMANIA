@@ -3,6 +3,18 @@ import "./globals.css";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import { Provider } from "@/components/Provider";
+import { Anton, Roboto } from "next/font/google";
+
+const anton = Anton({
+  subsets: ["latin"],
+  variable: "--font-anton-sans",
+  weight: "400",
+});
+const roboto = Roboto({
+  subsets: ["latin"],
+  variable: "--font-roboto-sans",
+  weight: "400",
+});
 
 export const metadata: Metadata = {
   title: "GYMANIA",
@@ -16,7 +28,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="font-roboto transition-all duration-300 max-w-[1500px] mx-auto">
+      <body
+        className={`font-roboto transition-all duration-300 max-w-[1500px] mx-auto ${anton.variable} ${roboto.variable}`}
+      >
         <Provider>
           <NavBar />
           {children}

@@ -57,7 +57,7 @@ const SearchExercices = () => {
           variants={variant}
           animate={onView ? "View" : ""}
           transition={{ duration: 0.75 }}
-          className="text-xl md:text-2xl max-w-2xl flex font-semibold items-center leading-10"
+          className="text-xl md:text-2xl max-w-2xl flex font-roboto items-center leading-10"
         >
           Going to the gym for the first time doesn’t need to be daunting. We
           offer some beginner workouts to help you feel confident and get the
@@ -67,7 +67,7 @@ const SearchExercices = () => {
           <br />
         </MotionP>
       </div>
-      <h2 className="font-bold text-4xl md:text-6xl text-center ">
+      <h2 className="font-anton text-4xl md:text-6xl text-center ">
         Awesome Exercices You <br className="hidden lg:block" /> Should Know{" "}
       </h2>
       <div className="relative flex flex-col items-center justify-center">

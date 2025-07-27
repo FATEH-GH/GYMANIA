@@ -40,7 +40,7 @@ const Exercises = ({ BodyPart }: exercisesProps) => {
     <>
       {!isloading ? (
         <section id="exercises">
-          <h2 className="font-bold my-8 text-3xl md:text-6xl">
+          <h2 className="font-anton my-8 text-3xl md:text-6xl">
             Showing Results
           </h2>
           <div className="grid place-content-center grid-col-1 sm:grid-cols-2 gap-4 md:grid-cols-3  ">

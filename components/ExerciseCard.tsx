@@ -21,7 +21,7 @@ const exercisesCard = ({ exercise, target }: ExerciseCardProps) => {
               className="bg-white rounded-md"
               unoptimized
             />
-            <div className="flex gap-4 flex-wrap font-semibold">
+            <div className="flex gap-4 flex-wrap font-roboto font-semibold">
               {exercise.secondaryMuscles.map((exer, index) => (
                 <p
                   key={index}
@@ -31,7 +31,7 @@ const exercisesCard = ({ exercise, target }: ExerciseCardProps) => {
                 </p>
               ))}
             </div>
-            <p className="font-bold text-xl md:text-2xl  capitalize">
+            <p className="font-semibold text-xl md:text-2xl  capitalize">
               {exercise.name}
             </p>
           </CardContent>
