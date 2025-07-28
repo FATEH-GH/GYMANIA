@@ -11,11 +11,11 @@ interface TweetCardProps {
 }
 
 export default function TweetCard({
-  authorName = "Dorian",
-  authorImage = "/images/Chest.png",
-  content = "All components from KokonutUI can now be open in @v0 🎉1. Click on 'Open in V0' 2. Customize with prompts 3. Deploy to your app",
+  authorName,
+  authorImage,
+  content,
   isVerified = true,
-  timestamp = "Jan 18, 2025",
+  timestamp,
 }: TweetCardProps) {
   return (
     <div
@@ -24,15 +24,15 @@ export default function TweetCard({
         "bg-white/5 dark:bg-black/90",
         "bg-linear-to-br from-black/5 to-black/[0.02] dark:from-white/5 dark:to-white/[0.02]",
         "backdrop-blur-xl backdrop-saturate-[180%]",
-        "border border-black/10 dark:border-white/10",
+        "border border-black/10 dark:border-black/10",
         "shadow-[0_8px_16px_rgb(0_0_0_/_0.15)] dark:shadow-[0_8px_16px_rgb(0_0_0_/_0.25)]",
-        "will-change-transform translate-z-0 font-roboto"
+        "will-change-transform translate-z-0 font-roboto "
       )}
     >
       <div
         className={cn(
-          "w-full p-5 rounded-xl relative h-[350px]",
-          "bg-linear-to-br from-black/[0.05] to-transparent dark:from-white/[0.08] dark:to-transparent",
+          "w-full p-5 rounded-xl relative h-full ",
+          "bg-linear-to-br from-customColor/[0.08] to-transparent",
           "backdrop-blur-md backdrop-saturate-150",
           "border border-black/[0.05] dark:border-white/[0.08]",
           "text-black/90 dark:text-white",
@@ -43,7 +43,7 @@ export default function TweetCard({
         )}
       >
         <div className="flex gap-3  items-center">
-          <div className="shrink-0">
+          <div>
             <div className="h-20 w-20 rounded-full overflow-hidden">
               <Image
                 src={authorImage}
@@ -56,13 +56,13 @@ export default function TweetCard({
           </div>
 
           <div>
-            <div className="flex flex-col  ">
+            <div className="flex flex-col">
               <div className="flex items-center gap-1">
                 <span className="font-semibold text-xl text-black dark:text-white/90 hover:underline cursor-pointer">
                   {authorName}
                 </span>
                 {isVerified && (
-                  <VerifiedIcon className="h-4 w-4 text-blue-400" />
+                  <VerifiedIcon className="h-4 w-4 text-customColor" />
                 )}
               </div>
               <span className="text-black dark:text-white/50 text-sm mt-2 block relative bottom-0 left-0">

@@ -1,79 +1,76 @@
-"use client";
-import { ExerciseListProps } from "@/types";
 import Image from "next/image";
-import { useEffect, useState } from "react";
-import SkeletonLoader from "@/components/Skeleton";
 import SimilarExercises from "@/components/SimilarExercies";
+import { notFound } from "next/navigation";
+import type { ExerciseListProps, PageProps } from "@/types";
 
-const Exercise = ({ params }: { params: { id: number } }) => {
-  const [exercicesId, setExercicesId] = useState<ExerciseListProps>();
-  const [isloading, setIsLoading] = useState(false);
+export async function generateStaticParams() {
+  const exercises = await fetch("http://localhost:3000/api/exercise").then(
+    (res) => res.json()
+  );
 
-  useEffect(() => {
-    const fetchExercise = async () => {
-      setIsLoading(true);
-      const { data }: { data: ExerciseListProps } = await fetch(
-        `/api/exercise/${params.id}`
-      )
-        .then((res) => res.json())
-        .catch((err) => console.info(err));
-      setExercicesId(data);
-      setIsLoading(false);
-    };
-    fetchExercise();
-  }, [params.id]);
+  return exercises.data.map((exercise: any) => ({
+    id: exercise.id,
+  }));
+}
+
+async function getExercise(id: string): Promise<ExerciseListProps> {
+  const exercise = await fetch(`http://localhost:3000/api/exercise/${id}`).then(
+    (res) => res.json()
+  );
+  if (!exercise) {
+    return notFound();
+  }
+
+  return exercise.data;
+}
+
+export default async function ExercisePage({ params }: PageProps) {
+  const { id } = await params;
+  const exercise = await getExercise(id);
 
   return (
-    <>
-      {exercicesId && !isloading ? (
-        <section className="wrapper">
-          <div className="flex flex-col md:flex-row justify-between md:justify-center items-center gap-10 my-24 mx-6">
-            <Image
-              src={exercicesId?.gifUrl}
-              alt="gifUrl"
-              height={500}
-              width={500}
-              className="md:w-[40%] rounded-md"
-              unoptimized
-            />
-            <div className="p-2 md:w-1/2 flex flex-col gap-4">
-              <h2 className="font-bold text-2xl text-red-500 capitalize my-4 mx-2 ">
-                {exercicesId.name}
-              </h2>
-              <h3 className="font-bold text-xl mb-2">Instructions</h3>
-              <p className="font-semibold"> {exercicesId.instructions}</p>
-              <h2 className="font-bold text-xl">Targeted Muscle:</h2>
-              <p className="bg-red-500 rounded-full p-2   max-w-[200px] text-center capitalize font-semibold">
-                {exercicesId.target}
+    <section className="wrapper">
+      <div className="flex flex-col md:flex-row justify-between md:justify-center items-center gap-10 my-24 mx-6">
+        <Image
+          src={exercise?.gifUrl}
+          alt="gifUrl"
+          height={500}
+          width={500}
+          className="md:w-[40%] rounded-md"
+          unoptimized
+        />
+        <div className="p-2 md:w-1/2 flex flex-col gap-4">
+          <h2 className="font-bold text-2xl text-red-500 capitalize my-4 mx-2 ">
+            {exercise.name}
+          </h2>
+          <h3 className="font-bold text-xl mb-2">Instructions</h3>
+          <p className="font-semibold"> {exercise.instructions}</p>
+          <h2 className="font-bold text-xl">Targeted Muscle:</h2>
+          <p className="bg-red-500 rounded-full p-2   max-w-[200px] text-center capitalize font-semibold">
+            {exercise.target}
+          </p>
+          <h2 className="font-bold text-xl">Secondary Muscle:</h2>
+
+          <div className="flex gap-2 flex-wrap">
+            {exercise.secondaryMuscles.map((muscle, index) => (
+              <p
+                key={index}
+                className="bg-red-500 rounded-full p-2 min-w-[75px] text-center capitalize font-semibold"
+              >
+                {muscle}
               </p>
-              <h2 className="font-bold text-xl">Secondary Muscle:</h2>
-
-              <div className="flex gap-2 flex-wrap">
-                {exercicesId.secondaryMuscles.map((muscle, index) => (
-                  <p
-                    key={index}
-                    className="bg-red-500 rounded-full p-2 min-w-[75px] text-center capitalize font-semibold"
-                  >
-                    {muscle}
-                  </p>
-                ))}
-              </div>
-            </div>
+            ))}
           </div>
+        </div>
+      </div>
 
-          <div>
-            <h3 className="font-bold capitalize  my-8 md:my-12 mx-2 text-2xl md:text-5xl md:text-center ">
-              Similar <span className="  text-red-500 ">Target Muscle </span>
-              exercises
-            </h3>
-            <SimilarExercises target={exercicesId.target} />
-          </div>
-        </section>
-      ) : (
-        <SkeletonLoader />
-      )}
-    </>
+      <div>
+        <h3 className="font-bold capitalize  my-8 md:my-12 mx-2 text-2xl md:text-5xl md:text-center ">
+          Similar <span className="  text-red-500 ">Target Muscle </span>
+          exercises
+        </h3>
+        <SimilarExercises target={exercise.target} />
+      </div>
+    </section>
   );
-};
-
-export default Exercise;
+}

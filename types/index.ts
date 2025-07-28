@@ -21,3 +21,6 @@ export interface exercisesProps {
 export interface SimilarExercisesProps {
   target: string;
 }
+export interface PageProps {
+  params: Promise<{ id: string }>;
+}

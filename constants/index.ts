@@ -18,7 +18,6 @@ export const testimonials = [
     authorImage: "/images/Jake.png",
     content:
       "I’ve tried dozens of fitness apps, but this one actually focuses on serious lifting. The muscle group breakdown is super clear, and the plans are no-nonsense. Highly recommended for bodybuilders.”",
-    isVerified: "true",
     timestamp: "May 7, 2024",
   },
   {
@@ -26,7 +25,6 @@ export const testimonials = [
     authorImage: "/images/Karim.png",
     content:
       "As a gym rat, I needed something simple but effective. This app is my daily go-to. I can track my routines, try new variations, and never waste time wondering what to train next.",
-    isVerified: "true",
     timestamp: "Feb 3, 2025",
   },
   {
@@ -34,7 +32,6 @@ export const testimonials = [
     authorImage: "/images/David.png",
     content:
       "I used to carry a notebook to the gym. Not anymore. This app organizes everything — from supersets to rest days — and keeps me on track. My gains have been way more consistent.",
-    isVerified: "true",
     timestamp: "Sep 12, 2024",
   },
   {
@@ -42,7 +39,6 @@ export const testimonials = [
     authorImage: "/images/Marco.png",
     content:
       "It’s like having a personal trainer in your pocket. Clean design, solid exercise library, and the red & black theme? 🔥 Love the energy.",
-    isVerified: "true",
     timestamp: "Jul 22, 2025",
   },
   {
@@ -50,7 +46,6 @@ export const testimonials = [
     authorImage: "/images/Lina.png",
     content:
       "Even as a woman in bodybuilding, this app makes me feel seen. Great UI, and the workouts are super effective. No fluff — just results.",
-    isVerified: "true",
     timestamp: "Jan 18, 2025",
   },
 ];

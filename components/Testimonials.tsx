@@ -2,8 +2,8 @@ import { InfiniteMovingCards } from "./ui/infinite-moving-cards";
 
 const Testimonials = () => {
   return (
-    <section id="tesimonials">
-      <InfiniteMovingCards speed="slow"></InfiniteMovingCards>
+    <section className="flex items-center justify-center" id="tesimonials">
+      <InfiniteMovingCards speed="normal"></InfiniteMovingCards>
     </section>
   );
 };

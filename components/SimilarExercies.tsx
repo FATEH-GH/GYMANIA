@@ -1,22 +1,23 @@
 import { ExerciseListProps, SimilarExercisesProps } from "@/types";
-import { useEffect, useState } from "react";
 import ExerciseCard from "./ExerciseCard";
+import { notFound } from "next/navigation";
 
-const SimilarExercises = ({ target }: SimilarExercisesProps) => {
-  const [listexercices, setListExercices] = useState<ExerciseListProps[]>();
+export async function SimilarExercises({ target }: SimilarExercisesProps) {
+  async function getExerciseByTarget(
+    target: string
+  ): Promise<ExerciseListProps[]> {
+    const exercise = await fetch(
+      `http://localhost:3000/api/target/${target}`
+    ).then((res) => res.json());
+    console.log(exercise);
+    if (!exercise) {
+      return notFound();
+    }
 
-  useEffect(() => {
-    const fetExercieseTarget = async () => {
-      const { data }: { data: ExerciseListProps[] } = await fetch(
-        `/api/target/${target}`
-      )
-        .then((res) => res.json())
-        .catch((err) => console.info(err));
-      setListExercices(data);
-      console.log("the second useeffect(2)");
-    };
-    fetExercieseTarget();
-  }, [target]);
+    return exercise.data;
+  }
+
+  const listexercices = await getExerciseByTarget(target);
   return (
     <div className="grid place-content-center grid-col-1 sm:grid-cols-2 gap-4 md:grid-cols-3  ">
       {listexercices &&
@@ -27,6 +28,6 @@ const SimilarExercises = ({ target }: SimilarExercisesProps) => {
         ))}
     </div>
   );
-};
+}
 
 export default SimilarExercises;
