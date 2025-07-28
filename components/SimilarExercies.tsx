@@ -2,21 +2,26 @@ import { ExerciseListProps, SimilarExercisesProps } from "@/types";
 import ExerciseCard from "./ExerciseCard";
 import { notFound } from "next/navigation";
 
-export async function SimilarExercises({ target }: SimilarExercisesProps) {
-  async function getExerciseByTarget(
-    target: string
-  ): Promise<ExerciseListProps[]> {
-    const exercise = await fetch(
-      `http://localhost:3000/api/target/${target}`
-    ).then((res) => res.json());
-    console.log(exercise);
-    if (!exercise) {
-      return notFound();
+async function getExerciseByTarget(
+  target: string
+): Promise<ExerciseListProps[]> {
+  const exercise = await fetch(
+    `https://exercisedb.p.rapidapi.com/exercises/target/${target}?limit=10`,
+    {
+      method: "GET",
+      headers: {
+        "X-RapidAPI-Key": process.env.NEXT_PUBLIC_API_KEY!,
+        "X-RapidAPI-Host": "exercisedb.p.rapidapi.com",
+      },
     }
-
-    return exercise.data;
+  ).then((res) => res.json());
+  if (!exercise) {
+    return notFound();
   }
+  return exercise;
+}
 
+export async function SimilarExercises({ target }: SimilarExercisesProps) {
   const listexercices = await getExerciseByTarget(target);
   return (
     <div className="grid place-content-center grid-col-1 sm:grid-cols-2 gap-4 md:grid-cols-3  ">

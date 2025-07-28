@@ -8,17 +8,28 @@ import SkeletonLoader from "./Skeleton";
 const Exercises = ({ BodyPart }: exercisesProps) => {
   const [exercises, setExercises] = useState<ExerciseListProps[]>();
   const [isloading, setIsloading] = useState(false);
+  console.log("the body part", BodyPart);
 
   useEffect(() => {
     const fetchExercise = async () => {
-      const { data }: { data: ExerciseListProps[] } = await fetch(
-        `/api/BodyParts/${BodyPart.toLowerCase()}`
-      )
-        .then((res) => res.json())
-        .catch((err) => console.info(err));
-
-      setExercises(data);
+      try {
+        const response = await fetch(
+          `https://exercisedb.p.rapidapi.com/exercises/bodyPart/${BodyPart.toLowerCase()}?limit=10`,
+          {
+            method: "GET",
+            headers: {
+              "X-RapidAPI-Key": process.env.NEXT_PUBLIC_API_KEY!,
+              "X-RapidAPI-Host": "exercisedb.p.rapidapi.com",
+            },
+          }
+        );
+        const data: ExerciseListProps[] = await response.json();
+        setExercises(data);
+      } catch (error) {
+        console.error("Failed to fetch exercises:", error);
+      }
     };
+
     fetchExercise();
   }, [BodyPart]);
 

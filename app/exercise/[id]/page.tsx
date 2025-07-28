@@ -1,11 +1,16 @@
 import Image from "next/image";
-import SimilarExercises from "@/components/SimilarExercies";
+// import SimilarExercises from "@/components/SimilarExercies";
 import { notFound } from "next/navigation";
 import type { ExerciseListProps, PageProps } from "@/types";
+import SimilarExercises from "@/components/SimilarExercies";
+
+const url = process.env.VERCEL_URL
+  ? `https://${process.env.VERCEL_URL}`
+  : "http://localhost:3000";
 
 export async function generateStaticParams() {
-  const exercises = await fetch("http://localhost:3000/api/exercise").then(
-    (res) => res.json()
+  const exercises = await fetch(`${url}/api/exercise`).then((res) =>
+    res.json()
   );
 
   return exercises.data.map((exercise: any) => ({
@@ -14,14 +19,21 @@ export async function generateStaticParams() {
 }
 
 async function getExercise(id: string): Promise<ExerciseListProps> {
-  const exercise = await fetch(`http://localhost:3000/api/exercise/${id}`).then(
-    (res) => res.json()
-  );
+  const exercise = await fetch(
+    `https://exercisedb.p.rapidapi.com/exercises/exercise/${id}`,
+    {
+      method: "GET",
+      headers: {
+        "X-RapidAPI-Key": process.env.NEXT_PUBLIC_API_KEY!,
+        "X-RapidAPI-Host": "exercisedb.p.rapidapi.com",
+      },
+    }
+  ).then((res) => res.json());
   if (!exercise) {
     return notFound();
   }
 
-  return exercise.data;
+  return exercise;
 }
 
 export default async function ExercisePage({ params }: PageProps) {
