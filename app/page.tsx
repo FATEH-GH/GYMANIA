@@ -1,3 +1,4 @@
+import ChooseUs from "@/components/ChooseUs";
 import FeaturedExercises from "@/components/FeaturedExercises";
 import Hero from "@/components/Hero";
 import SearchExercises from "@/components/SearchExercises";
@@ -8,6 +9,7 @@ export default function Home() {
     <main className="wrapper">
       <Hero />
       <FeaturedExercises />
+      <ChooseUs />
       <SearchExercises />
       <Testimonials />
     </main>

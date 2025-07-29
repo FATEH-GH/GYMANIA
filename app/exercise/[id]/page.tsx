@@ -3,19 +3,23 @@ import { notFound } from "next/navigation";
 import type { ExerciseListProps, PageProps } from "@/types";
 import SimilarExercises from "@/components/SimilarExercies";
 
-// const url = process.env.VERCEL_URL
-//   ? `https://${process.env.VERCEL_URL}`
-//   : "http://localhost:3000";
+const url = process.env.VERCEL_URL
+  ? `https://${process.env.VERCEL_URL}`
+  : "http://localhost:3000";
 
-// export async function generateStaticParams() {
-//   const exercises = await fetch(`${url}/api/exercise`).then((res) =>
-//     res.json()
-//   );
+export async function generateStaticParams() {
+  const exercises = await fetch(`https://exercisedb.p.rapidapi.com/exercises`, {
+    method: "GET",
+    headers: {
+      "X-RapidAPI-Key": process.env.NEXT_PUBLIC_API_KEY!,
+      "X-RapidAPI-Host": "exercisedb.p.rapidapi.com",
+    },
+  }).then((res) => res.json());
 
-//   return exercises.data.map((exercise: any) => ({
-//     id: exercise.id,
-//   }));
-// }
+  return exercises.map((exercise: any) => ({
+    id: exercise.id,
+  }));
+}
 
 async function getExercise(id: string): Promise<ExerciseListProps> {
   const exercise = await fetch(
