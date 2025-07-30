@@ -8,7 +8,6 @@ import SkeletonLoader from "./Skeleton";
 const Exercises = ({ BodyPart }: exercisesProps) => {
   const [exercises, setExercises] = useState<ExerciseListProps[]>();
   const [isloading, setIsloading] = useState(false);
-  console.log("the body part", BodyPart);
 
   useEffect(() => {
     const fetchExercise = async () => {

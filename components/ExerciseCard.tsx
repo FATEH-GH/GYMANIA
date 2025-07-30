@@ -15,6 +15,7 @@ const exercisesCard = ({ exercise, target }: ExerciseCardProps) => {
           <CardContent className="flex items-center justify-center flex-col gap-6">
             <Image
               src={exercise.gifUrl}
+              key={exercise.id}
               alt="imageUrl"
               width={300}
               height={300}
